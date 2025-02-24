@@ -77,9 +77,9 @@
         }
         #timetable-table {
             width: 95%;
-            height: 40vh;
             border-collapse: collapse;
-            margin-top: -26vh;
+            margin-top: 20px;
+            height: 20vh !important;
         }
 
         #timetable-table th, #timetable-table td {
@@ -87,14 +87,13 @@
             padding: 15px;
             text-align: center;
             font-size: 1.2vw;
+            height: 0vh;
         }
 
         .time-slot {
             font-weight: bold;
             background-color: #eeeeee;
             color: #333;
-            height: 4vh;
-            font-size: 2em !important;
         }
 
         .break {
@@ -105,16 +104,13 @@
         .time-header, .day-header {
             background-color: #c1c1c1;
             font-weight: bold;
-            height: 5vh;
-            font-weight: bold;
-            font-size: 2em !important;
+            height: 1vh !important;
         }
-        .day-header{
-            font-size: 2em !important;
-        }
+
         .empty-slot {
             background-color: white;
             color: #999;
+            height: 1vh !important;
         }
 
         .edit-buttons {
@@ -159,9 +155,6 @@
 
         .remove-btn:hover {
             background-color: darkred;
-        }
-        .add-btn{
-            font-size: 3em;
         }
     </style>
     <div id="header">
