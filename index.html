@@ -1,0 +1,520 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rīgas Stila un modes tehnikums</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQopu927OhDNTuSDWUMXeYFvfIU7imp-F5phA&s" type="image/png">
+    <link rel="apple-touch-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQopu927OhDNTuSDWUMXeYFvfIU7imp-F5phA&s">
+    <link rel="icon" sizes="192x192" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQopu927OhDNTuSDWUMXeYFvfIU7imp-F5phA&s">
+    <link rel="icon" sizes="512x512" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQopu927OhDNTuSDWUMXeYFvfIU7imp-F5phA&s">
+</head>
+<body>
+    <style>
+        body{
+            background-color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #header{
+            width: 100%;
+            height: 16vh;
+            background-color: white;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        #secondbody{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            left: 0;
+            right: 0;
+            position: absolute;
+        }
+        #rigalogo{
+            height: 5vh;
+            border-radius: 100px;
+        }
+        #brandname{
+            font-size: 6vw;
+            text-align: center;
+            font-weight: bold;
+        }
+        #bottomcontainer{
+            height: 10vh;
+            width: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            position: fixed;
+            padding-bottom: 20px;
+            justify-content: space-around; 
+            align-items: center; 
+        }
+        #btn {
+             background-color: transparent;
+              border: none;
+              height: 100%; 
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 0; 
+        }
+
+            #imgbtn {
+                height: 80%; 
+                width: auto;
+                max-height: 100%; 
+        }
+        #secondbody{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        #timetable-table {
+            width: 95%;
+            height: 40vh;
+            border-collapse: collapse;
+            margin-top: -26vh;
+        }
+
+        #timetable-table th, #timetable-table td {
+            border: 2px solid #000;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2vw;
+        }
+
+        .time-slot {
+            font-weight: bold;
+            background-color: #eeeeee;
+            color: #333;
+            height: 4vh;
+            font-size: 2em !important;
+        }
+
+        .break {
+            background-color: #ffeb3b;
+            font-weight: bold;
+        }
+
+        .time-header, .day-header {
+            background-color: #c1c1c1;
+            font-weight: bold;
+            height: 5vh;
+            font-weight: bold;
+            font-size: 2em !important;
+        }
+        .day-header{
+            font-size: 2em !important;
+        }
+        .empty-slot {
+            background-color: white;
+            color: #999;
+        }
+
+        .edit-buttons {
+            display: inline-block;
+            font-size: 1.5vw;
+        }
+
+        .edit-buttons button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-options {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-top: 20px;
+            z-index: 1000;
+        }
+
+        .add-options button {
+            display: block;
+            padding: 5px 10px;
+            margin: 2px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .remove-btn {
+            background-color: red;
+            color: white;
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: darkred;
+        }
+        .add-btn{
+            font-size: 3em;
+        }
+    </style>
+    <div id="header">
+        <img id="rigalogo" src="https://raw.githubusercontent.com/RigaStilaUnTehnikums/info/main/rigas.jpg" alt="Logo">
+        <label id="brandname">     Riga Stila un modes tehnikums      </label>
+    </div>
+    <div id="secondbody">
+        <table id="timetable-table">
+            <thead>
+                <tr>
+                    <th class="time-header">Time</th>
+                    <th class="day-header">Monday</th>
+                    <th class="day-header">Tuesday</th>
+                    <th class="day-header">Wednesday</th>
+                    <th class="day-header">Thursday</th>
+                    <th class="day-header">Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time-slot">9:00-9:40</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">9:45-10:25</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">10:30-11:10</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">11:15-11:55</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">12:00-12:40</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">12:45-13:25</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">13:30-14:10</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">14:15-14:55</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">15:00-15:40</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">15:45-16:25</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="time-slot">18:00-18:45</td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="empty-slot">
+                        <div class="edit-buttons">
+                            <button class="add-btn">+</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="bottomcontainer">
+        <a  id="href" href="https://rigastilauntehnikums.github.io/mobile/">
+            <button id="btn">
+                <img id="imgbtn" src="https://cdn1.iconfinder.com/data/icons/real-estate-building-flat-vol-1/104/building__house__home__real__estate-512.png" alt="">
+            </button>
+            <a  id="href" href="https://rigastilauntehnikums.github.io/timetable/">
+                <button id="btn">
+                    <img id="imgbtn" src="https://cdn3.iconfinder.com/data/icons/education-science-vol-1-1/512/books_book_glasses_reading-512.png" alt="">
+                </button>
+        </a>
+        <a  id="href" href="https://www.google.com/">
+            <button id="btn">
+                <img id="imgbtn" src="https://cdn4.iconfinder.com/data/icons/football-86/64/substitution-change-players-sports-competition-512.png" alt="">
+            </button>
+    </a>
+    <a  id="href" href="https://www.google.com/">
+        <button id="btn">
+            <img id="imgbtn" src="https://cdn1.iconfinder.com/data/icons/computer-technology-58/62/computer-login-password-security-access-512.png" alt="">
+        </button>
+</a>
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>
